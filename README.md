@@ -1,2 +1,2 @@
 # Data-Structures-and-Algorithms-Practice
-Practicing Data Structures and Algorithms coding programs each month! 
+Programming Data Structures and Algorithms questions each month! 
