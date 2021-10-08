@@ -1,21 +1,34 @@
+# [-4,-1,0,3,10]
+#       l                r
+# [-11, -1, 0, 1, 2, 3, 10]
+
+# results = [100, 16, 9]
+#                           i
+# results = [0, 0, 0, 0, 0, 0, 121]
+ # [9, 16, 100]
 class Solution:
     def sortedSquares(self, arr: List[int]) -> List[int]:
-        # n = len(arr)
-        # squares = [0 for x in range(n)] instead of list comprehension we can do one liner to initialize answers array
-        squares = [0] * len(arr)
+        results = [0] * len(arr)
         left = 0
         right = len(arr) - 1
-        # where we are going to insert in our square answers array, decrement each time
-        highestSquareIdx = right
+        index = len(arr) - 1
+        
         while left <= right:
-            leftSquare = arr[left] * arr[left]
-            rightSquare = arr[right] * arr[right]
-            if leftSquare > rightSquare:
-                squares[highestSquareIdx] = leftSquare
+            sq_left = arr[left] * arr[left]
+            sq_right = arr[right] * arr[right] 
+            
+            if sq_left > sq_right:
+                results[index] = sq_left
                 left += 1
-            else:
-                squares[highestSquareIdx] = rightSquare
+            
+            # right and equal case 
+            else: 
+                results[index] = sq_right
                 right -= 1
-            highestSquareIdx -= 1
+                
+            index -= 1
+        return results 
+        
+        
 
-        return squares
+        
