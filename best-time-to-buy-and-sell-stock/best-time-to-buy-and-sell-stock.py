@@ -1,21 +1,20 @@
 class Solution:
-    """
-    Input: prices = [7,1,5,3,6,4]
-    Output: 5
-    
-             i 
-    [7,1,5,3,6,4]
-    5-1, 3-1, 6-1, 4-1
-    
-    # find smallest entry point to buy stock
-    """
+#  b s
+# [7,1,5,3,6,4]
+
+# max(profit) = 5
+# update minimum each iteration
+# max(profit) = s - b
+# return profit after loop ends
     def maxProfit(self, arr: List[int]) -> int:
-        profit = 0
-        start_price = float('inf')
+        profit = 0 
+        buy = float('inf') 
+        sell = 0 
         
         for i in range(len(arr)):
-            start_price = min(start_price, arr[i])
-            current_prof = arr[i] - start_price
-            profit = max(profit, current_prof)
-        
+            current_price = arr[i]
+            buy = min(buy, current_price)
+            diff = current_price - buy 
+            profit = max(profit, diff)
         return profit 
+            
